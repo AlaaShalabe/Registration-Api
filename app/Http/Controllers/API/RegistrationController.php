@@ -15,11 +15,7 @@ class RegistrationController extends Controller
     public function registration(RegistrationRequest $request)
     {
         try {
-            $data = $request->validated();
-            if ($data->failes()) {
-                throw new \Exception('failed to validate ...!');
-            }
-            // $data['password'] = Hash::make($request->password);
+            $request->validated();
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
